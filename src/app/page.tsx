@@ -33,8 +33,31 @@ const staggerContainer: Variants = {
 };
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Botifyme',
+    operatingSystem: 'Any',
+    applicationCategory: 'BusinessApplication',
+    description: 'AI Chatbot and WhatsApp automation platform for e-commerce in Nepal. Integrates with Nepal Can Move and PickNDrop.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Botifyme',
+      url: 'https://botifyme.com'
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 selection:bg-purple-500/30 text-slate-900 overflow-clip">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       <main>
