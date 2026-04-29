@@ -13,37 +13,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://botifyme.com'),
-  title: "Botifyme | AI Chatbot & WhatsApp Automation in Nepal",
-  description: "Automate your e-commerce sales and customer support with Botifyme's AI agent across WhatsApp, Instagram, and Messenger in Nepal. Connect with NCM & PickNDrop.",
+  metadataBase: new URL('https://botifyme.tech'),
+  title: "Botifyme | All-in-One AI Storefront, Chatbot & Delivery SaaS",
+  description: "Launch a free e-commerce storefront with a built-in AI assistant and seamless delivery integration. The ultimate all-in-one SaaS platform to automate your sales.",
   keywords: [
-    "WhatsApp automation Nepal",
-    "AI Chatbot for e-commerce Nepal",
-    "WhatsApp Business API Nepal",
-    "Automated Customer Support Nepal",
-    "E-commerce CRM integration Nepal",
-    "Botifyme",
-    "Instagram DM automation"
+    "All-in-one e-commerce SaaS",
+    "AI-powered storefront builder",
+    "Online store with built-in delivery",
+    "SaaS platform with AI sales assistant",
+    "free ecommerce site with ai sales agent",
+    "Free e-commerce storefront",
+    "Shopify alternative",
+    "Omnichannel AI Chatbot",
+    "WhatsApp Business API Integration",
+    "Botifyme"
   ],
   openGraph: {
-    title: "Botifyme | AI E-Commerce Automation in Nepal",
-    description: "Automate your e-commerce sales and customer support with Botifyme's AI agent.",
-    url: 'https://botifyme.com',
+    title: "Botifyme | All-in-One AI Storefront, Chatbot & Delivery SaaS",
+    description: "Launch a free e-commerce storefront with a built-in AI assistant and seamless delivery integration. The ultimate all-in-one SaaS platform to automate your sales.",
+    url: 'https://botifyme.tech',
     siteName: 'Botifyme',
-    locale: 'en_NP',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Botifyme | AI E-Commerce Automation in Nepal",
-    description: "Automate your e-commerce sales and customer support with Botifyme's AI agent.",
+    title: "Botifyme | All-in-One AI Storefront, Chatbot & Delivery SaaS",
+    description: "Launch a free e-commerce storefront with a built-in AI assistant and seamless delivery integration. The ultimate all-in-one SaaS platform to automate your sales.",
   },
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
-    canonical: 'https://botifyme.com',
+    canonical: 'https://botifyme.tech',
   }
 };
 

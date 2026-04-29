@@ -39,7 +39,7 @@ export default function Home() {
     name: 'Botifyme',
     operatingSystem: 'Any',
     applicationCategory: 'BusinessApplication',
-    description: 'AI Chatbot and WhatsApp automation platform for e-commerce in Nepal. Integrates with Nepal Can Move and PickNDrop.',
+    description: 'The ultimate all-in-one e-commerce SaaS. Launch a free storefront with a built-in AI assistant and seamless delivery integration to automate your sales.',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -48,7 +48,7 @@ export default function Home() {
     provider: {
       '@type': 'Organization',
       name: 'Botifyme',
-      url: 'https://botifyme.com'
+      url: 'https://botifyme.tech'
     }
   };
 
@@ -273,7 +273,7 @@ export default function Home() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-slate-600 text-xs md:text-sm">
                       <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-purple-500 shrink-0" />
-                      <span>Up to <strong>20</strong> Products Synced</span>
+                      <span><strong>20</strong> AI Synced Products</span>
                     </div>
                     <div className="flex items-center gap-3 text-slate-600 text-xs md:text-sm">
                       <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-purple-500 shrink-0" />
