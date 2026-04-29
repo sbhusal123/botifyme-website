@@ -35,11 +35,20 @@ export const metadata: Metadata = {
     siteName: 'Botifyme',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Botifyme Omnichannel AI E-Commerce Automation',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Botifyme | All-in-One AI Storefront, Chatbot & Delivery SaaS",
     description: "Launch a free e-commerce storefront with a built-in AI assistant and seamless delivery integration. The ultimate all-in-one SaaS platform to automate your sales.",
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
