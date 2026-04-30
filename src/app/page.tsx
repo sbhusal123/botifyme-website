@@ -99,7 +99,18 @@ export default function Home() {
                   >
                     Start your 10 days trial
                   </a>
+                  <a 
+                    href="https://test.botifyme.tech" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-white text-slate-900 border border-slate-200 font-bold rounded-full hover:bg-slate-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    View Live Demo <ArrowRight className="w-4 h-4" />
+                  </a>
                 </div>
+                <p className="mt-4 text-[10px] md:text-xs text-slate-400 lg:text-left text-center italic">
+                  * For admin credentials and login, please contact us for demo usage.
+                </p>
 
                 <div className="mt-8 md:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6 text-xs md:text-sm text-slate-500 font-medium">
                   <div className="flex items-center gap-2">
