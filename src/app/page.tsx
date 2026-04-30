@@ -14,6 +14,7 @@ import FeatureShowcase from "@/components/FeatureShowcase";
 import HeroAnimation from "@/components/HeroAnimation";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import { Variants } from "framer-motion";
 import { MotionDiv, MotionSection } from "@/components/Motion";
 
@@ -356,6 +357,13 @@ export default function Home() {
 
         {/* FAQ Section */}
         <FAQ />
+
+        {/* Contact Form Section */}
+        <section id="contact" className="py-16 sm:py-20 md:py-24 relative px-4 sm:px-6 bg-slate-50 border-t border-slate-200">
+          <div className="container mx-auto relative z-10">
+            <ContactForm />
+          </div>
+        </section>
 
         {/* CTA Section */}
         <MotionSection

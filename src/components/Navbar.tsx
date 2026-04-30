@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="#integrations" className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium">Integrations</Link>
           <Link href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium">How it Works</Link>
           <Link href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium">Pricing</Link>
-          <a href="https://wa.me/9779861155894" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium">Contact Us</a>
+          <Link href="#contact" className="text-slate-600 hover:text-slate-900 transition-colors text-sm font-medium">Contact Us</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -56,7 +56,7 @@ export default function Navbar() {
           <Link href="#integrations" className="text-slate-600 hover:text-slate-900 font-medium py-2 border-b border-slate-100" onClick={() => setIsMobileMenuOpen(false)}>Integrations</Link>
           <Link href="#how-it-works" className="text-slate-600 hover:text-slate-900 font-medium py-2 border-b border-slate-100" onClick={() => setIsMobileMenuOpen(false)}>How it Works</Link>
           <Link href="#pricing" className="text-slate-600 hover:text-slate-900 font-medium py-2 border-b border-slate-100" onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link>
-          <a href="https://wa.me/9779861155894" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 font-medium py-2 border-b border-slate-100" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</a>
+          <Link href="#contact" className="text-slate-600 hover:text-slate-900 font-medium py-2 border-b border-slate-100" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
           <a 
             href="https://ig.me/m/tekkops555" 
             target="_blank"

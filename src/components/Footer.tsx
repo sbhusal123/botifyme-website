@@ -23,6 +23,16 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Quick Links */}
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <h4 className="text-white font-bold mb-2">Quick Links</h4>
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <Link href="#features" className="hover:text-white transition-colors">Features</Link>
+              <Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link>
+              <Link href="#contact" className="hover:text-white transition-colors">Contact Us</Link>
+            </div>
+          </div>
+
           {/* Social Links */}
           <div className="flex flex-col items-center md:items-start gap-4">
             <h4 className="text-white font-bold mb-2">Connect With Us</h4>
