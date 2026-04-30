@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import {
@@ -7,14 +10,18 @@ import {
   Sparkles,
   BotMessageSquare,
   Smartphone,
-  CheckCircle2
+  CheckCircle2,
+  Mail,
+  Phone,
+  MapPin
 } from "lucide-react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import FeatureShowcase from "@/components/FeatureShowcase";
 import HeroAnimation from "@/components/HeroAnimation";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import TrialModal from "@/components/TrialModal";
 import { Variants } from "framer-motion";
 import { MotionDiv, MotionSection } from "@/components/Motion";
 
@@ -34,6 +41,7 @@ const staggerContainer: Variants = {
 };
 
 export default function Home() {
+  const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -91,14 +99,12 @@ export default function Home() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                  <a 
-                    href="https://ig.me/m/tekkops555" 
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={() => setIsTrialModalOpen(true)}
                     className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-slate-900 text-white font-bold rounded-full hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2"
                   >
                     Start your 10 days trial
-                  </a>
+                  </button>
                   <a 
                     href="https://test.botifyme.tech" 
                     target="_blank"
@@ -376,6 +382,93 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Site Contact Details Section */}
+        <MotionSection 
+          id="site-contact" 
+          className="py-16 sm:py-20 md:py-32 bg-slate-50 relative overflow-hidden px-4 sm:px-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          {/* Background Decorative Elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-100 rounded-full blur-[100px] -mr-32 -mt-32 opacity-60"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full blur-[100px] -ml-32 -mb-32 opacity-60"></div>
+
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="text-center mb-12 md:mb-20">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">
+                <Sparkles className="w-4 h-4" />
+                Connect Directly
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Site Contact Details</h2>
+              <p className="text-slate-600 text-lg max-w-2xl mx-auto">Skip the form and reach out to us instantly through our social and messaging platforms.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              {/* Facebook Card */}
+              <MotionDiv 
+                whileHover={{ y: -10 }}
+                className="p-8 bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-slate-200 shadow-xl shadow-slate-200/50 text-center group transition-all"
+              >
+                <div className="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  <FaFacebook className="w-10 h-10 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Facebook</h3>
+                <p className="text-slate-600 mb-8">Join 1,000+ brands in our growing Facebook community.</p>
+                <a 
+                  href="https://www.facebook.com/tekkops.technologies5555" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="inline-flex items-center gap-2 text-blue-600 font-bold hover:gap-3 transition-all"
+                >
+                  Visit Page <ArrowRight className="w-4 h-4" />
+                </a>
+              </MotionDiv>
+
+              {/* Instagram Card */}
+              <MotionDiv 
+                whileHover={{ y: -10 }}
+                className="p-8 bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-slate-200 shadow-xl shadow-slate-200/50 text-center group transition-all"
+              >
+                <div className="w-20 h-20 bg-pink-50 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
+                  <FaInstagram className="w-10 h-10 text-pink-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Instagram</h3>
+                <p className="text-slate-600 mb-8">See our latest automation features and client success stories.</p>
+                <a 
+                  href="https://www.instagram.com/tekkops555/" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="inline-flex items-center gap-2 text-pink-600 font-bold hover:gap-3 transition-all"
+                >
+                  Follow Us <ArrowRight className="w-4 h-4" />
+                </a>
+              </MotionDiv>
+
+              {/* WhatsApp Card */}
+              <MotionDiv 
+                whileHover={{ y: -10 }}
+                className="p-8 bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-slate-200 shadow-xl shadow-slate-200/50 text-center group transition-all"
+              >
+                <div className="w-20 h-20 bg-green-50 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  <FaWhatsapp className="w-10 h-10 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">WhatsApp</h3>
+                <p className="text-slate-600 mb-8">Chat with our dedicated support team 24/7 for instant help.</p>
+                <a 
+                  href="https://wa.me/9779861155894" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="inline-flex items-center gap-2 text-green-600 font-bold hover:gap-3 transition-all"
+                >
+                  Message Us <ArrowRight className="w-4 h-4" />
+                </a>
+              </MotionDiv>
+            </div>
+          </div>
+        </MotionSection>
+
         {/* CTA Section */}
         <MotionSection
           className="py-16 sm:py-20 md:py-32 relative px-4 sm:px-6"
@@ -391,14 +484,12 @@ export default function Home() {
               <div className="relative z-10 max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-slate-900">Ready to automate your e-commerce growth?</h2>
                 <p className="text-base md:text-xl text-slate-600 mb-8 md:mb-10">Join 1,000+ brands using Botifyme to scale their customer support and increase sales through automated chat.</p>
-                <a 
-                  href="https://ig.me/m/tekkops555" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button 
+                  onClick={() => setIsTrialModalOpen(true)}
                   className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-slate-900 text-white font-bold rounded-full hover:scale-105 transition-transform duration-300 text-base md:text-lg shadow-lg"
                 >
                   Start your 10 days trial <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                </a>
+                </button>
                 <p className="mt-6 text-xs md:text-sm text-slate-500">No credit card required. Cancel anytime.</p>
               </div>
             </div>
@@ -407,6 +498,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <TrialModal isOpen={isTrialModalOpen} onClose={() => setIsTrialModalOpen(false)} />
     </div>
   );
 }

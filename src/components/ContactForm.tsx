@@ -64,7 +64,7 @@ export default function ContactForm() {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-100 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none"></div>
 
         <div className="relative z-10 text-center mb-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Have questions? Let's talk.</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Have a Question or Book a Demo?</h3>
           <p className="text-slate-600">Send us a message and our team will get back to you shortly.</p>
         </div>
 

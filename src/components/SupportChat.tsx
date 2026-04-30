@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Send, Loader2, Bot } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
+import Cookies from 'js-cookie';
 
 type Message = {
   id: string;
@@ -19,15 +20,20 @@ export default function SupportChat() {
   const [isInitializing, setIsInitializing] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [draft, setDraft] = useState('');
+  const [showTooltip, setShowTooltip] = useState(false);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check if there's an existing session in localStorage
-    const storedSession = localStorage.getItem('botifyme_chat_session');
+    // Check if there's an existing session in cookies
+    const storedSession = Cookies.get('botifyme_chat_session');
     if (storedSession) {
       setSessionId(storedSession);
     }
+    
+    // Show tooltip after 3 seconds if chat is closed
+    const timer = setTimeout(() => setShowTooltip(true), 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   // Fetch messages initially when opened or session changes
@@ -73,7 +79,7 @@ export default function SupportChat() {
       if (res.ok) {
         const data = await res.json();
         setSessionId(data.id);
-        localStorage.setItem('botifyme_chat_session', data.id);
+        Cookies.set('botifyme_chat_session', data.id, { expires: 30 }); // Session persists for 30 days
       }
     } catch (err) {
       console.error("Failed to start session:", err);
@@ -118,12 +124,39 @@ export default function SupportChat() {
   return (
     <>
       {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-tr from-purple-600 to-cyan-500 rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform duration-300 z-50 group"
-      >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6 group-hover:animate-pulse" />}
-      </button>
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-4">
+        <AnimatePresence>
+          {showTooltip && !isOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: 20, scale: 0.8 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 20, scale: 0.8 }}
+              className="bg-white px-4 py-2 rounded-2xl shadow-xl border border-purple-100 text-sm font-bold text-slate-800 flex items-center gap-2 whitespace-nowrap"
+            >
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              How can I help?
+              <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-white border-r border-t border-purple-100 rotate-45"></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <button
+          onClick={() => {
+            setIsOpen(!isOpen);
+            setShowTooltip(false);
+          }}
+          className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group border-2 border-purple-100 overflow-hidden relative"
+        >
+          {isOpen ? (
+            <X className="w-8 h-8 text-slate-500" />
+          ) : (
+            <>
+              <img src="/bot-icon.png" alt="Bot" className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+              <div className="absolute inset-0 bg-purple-600/5 group-hover:bg-transparent transition-colors"></div>
+            </>
+          )}
+        </button>
+      </div>
 
       {/* Chat Window */}
       <AnimatePresence>
@@ -137,8 +170,8 @@ export default function SupportChat() {
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-purple-600 to-cyan-500 p-4 text-white flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <Bot className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden border-2 border-white/20 shadow-inner">
+                <img src="/bot-icon.png" alt="Bot" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-bold">Botifyme Support</h3>

@@ -60,6 +60,7 @@ export const metadata: Metadata = {
 };
 
 import SupportChat from "@/components/SupportChat";
+import DemoBadge from "@/components/DemoBadge";
 
 export default function RootLayout({
   children,
@@ -74,6 +75,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <SupportChat />
+        <DemoBadge />
       </body>
     </html>
   );
